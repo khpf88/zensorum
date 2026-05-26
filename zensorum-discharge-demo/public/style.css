@@ -1,0 +1,3 @@
+body { font-family: sans-serif; padding: 20px; }
+#workflows { display: grid; gap: 10px; }
+.workflow-card { border: 1px solid #ccc; padding: 10px; border-radius: 4px; }
