@@ -8,7 +8,7 @@ import {
   WorkflowId, 
   TenantId,
   ZensorumEvent
-} from '../../core/types';
+} from '../../../../packages/core/types';
 
 /**
  * Zensorum SDK Client

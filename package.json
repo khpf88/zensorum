@@ -1,0 +1,12 @@
+{
+  "name": "zensorum-root",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "runtime"
+  ],
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

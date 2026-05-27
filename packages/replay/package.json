@@ -1,0 +1,12 @@
+{
+  "name": "@zensorum/replay",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "dependencies": {
+    "@zensorum/application-contracts": "workspace:*",
+    "@zensorum/core": "workspace:*",
+    "uuid": "^14.0.0"
+  }
+}

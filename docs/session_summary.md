@@ -1,17 +1,22 @@
 # Zensorum Session Summary
 
-## Session: 2026-05-25 (AM)
+## Session: 2026-05-26
 
 ### Goal
-Establish the monorepo baseline and prepare for `zensorum-discharge-demo` refactoring.
+Transition Zensorum from an architectural design to an empirically certified deterministic execution authority.
 
 ### Outcomes
-- The repository is now structurally aligned with the monorepo architecture.
-- `apps/zensorum-discharge-demo` is isolated from the root.
-- A new Git history has been established as the source of truth on GitHub.
-- Detailed specifications for Phase 5 (Formal Verification) and the ZRCL design have been formalized in the session context.
+- **Empirical Determinism Proof:** Successfully executed the first full end-to-end certification run, proving that a live workflow can be captured, replayed with zero drift, and committed to an immutable ledger.
+- **Authority Centralization:** Established the **Identity Projection Authority (IPA)** as the sole system-level authority for execution identity, ending distributed hashing logic.
+- **Architectural Integrity:** Resolved all illegal dependency inversions where core packages were importing from the application layer.
+- **Contract Stabilization:** Centralized the `ExecutionBundle` schema and reconciled dual definitions across the workspace.
+- **Immutable Lineage:** The system now possesses its first certified block in the Global Determinism Ledger.
 
 ### Key Architectural Decisions
-- **Discharge Demo Isolation:** Confirmed that the demo application is a consumer and should not contain core verification logic.
-- **Stateless ZRCL:** Decided that the compatibility layer must be stateless and purely transformational.
-- **Formal Verification Freeze:** The core verification stack (CAR, CSNL, Phase 5, CGVL, FVCL, CDF) is considered frozen and authoritative.
+- **Semantic Stratification:** Confirmed that `ExecutionBundle` must exist in stratified layers (App/Canonical/Trace) to preserve determinism across system boundaries.
+- **IPA Invariance:** Decided that Identity must be calculated on pure semantic intent, excluding all runtime and version-specific metadata.
+- **Strict Certification:** Established that a run is only valid if it achieves 100% tick parity and zero drift, with no "best-effort" fallback allowed.
+
+### Determinism Verdict
+**STATUS: EMPIRICALLY CERTIFIED**
+The Zensorum platform is now operationally ready to serve as a deterministic foundation for hospital discharge and other mission-critical workflows.

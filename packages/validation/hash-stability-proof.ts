@@ -1,5 +1,5 @@
 import { FormalProofEngine, ProofResult } from './formal-verification';
-import { ExecutionBundle } from '../../zensorum-discharge-demo/types/runtime/execution-bundle';
+import { ExecutionBundle } from '@zensorum/application-contracts/types/execution-bundle';
 
 export class HashStabilityProofEngine implements FormalProofEngine<ExecutionBundle> {
   prove(bundle: ExecutionBundle): ProofResult {

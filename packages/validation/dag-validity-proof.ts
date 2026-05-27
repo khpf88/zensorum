@@ -1,6 +1,6 @@
 import { FormalProofEngine, ProofResult } from './formal-verification';
 import { DagLineageValidator } from './dag-validator';
-import { ExecutionBundle } from '../../zensorum-discharge-demo/types/runtime/execution-bundle';
+import { ExecutionBundle } from '@zensorum/application-contracts/types/execution-bundle';
 
 export class DAGValidityProofEngine implements FormalProofEngine<ExecutionBundle> {
   private validator = new DagLineageValidator();

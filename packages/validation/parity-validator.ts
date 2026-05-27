@@ -1,4 +1,4 @@
-import { ExecutionBundle } from '../../zensorum-discharge-demo/types/runtime/execution-bundle';
+import { ExecutionBundle } from '@zensorum/application-contracts/types/execution-bundle';
 import { InvariantResult, Violation } from './types';
 
 export class ParityValidator {

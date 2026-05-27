@@ -1,0 +1,10 @@
+{
+  "name": "@zensorum/projection",
+  "version": "0.1.0",
+  "main": "adapter.ts",
+  "types": "adapter.ts",
+  "scripts": {
+    "build": "echo 'Building projection...'",
+    "clean": "rm -rf dist"
+  }
+}
