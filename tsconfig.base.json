@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@zensorum/application-contracts/*": ["packages/application-contracts/*"],
+      "@zensorum/binding/*": ["packages/binding/*"],
+      "@zensorum/core/*": ["packages/core/*"],
+      "@zensorum/csnl/*": ["packages/csnl/*"],
+      "@zensorum/ledger/*": ["packages/ledger/*"],
+      "@zensorum/normalization/*": ["packages/normalization/*"],
+      "@zensorum/operator-cli/*": ["packages/operator-cli/*"],
+      "@zensorum/projection/*": ["packages/projection/*"],
+      "@zensorum/replay/*": ["packages/replay/*"],
+      "@zensorum/sdk/*": ["packages/sdk/*"],
+      "@zensorum/validation/*": ["packages/validation/*"],
+      "@zensorum/workflow-engine/*": ["packages/workflow-engine/*"]
+    }
+  }
+}
