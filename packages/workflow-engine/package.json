@@ -1,0 +1,10 @@
+{
+  "name": "@zensorum/workflow-engine",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "build": "echo 'Building workflow-engine...'",
+    "clean": "rm -rf dist"
+  }
+}

@@ -148,11 +148,42 @@ importers:
 
   packages/application-contracts: {}
 
+  packages/binding: {}
+
   packages/core:
     dependencies:
       zod:
         specifier: ^4.4.3
         version: 4.4.3
+
+  packages/csnl: {}
+
+  packages/ledger: {}
+
+  packages/normalization: {}
+
+  packages/operator-cli:
+    dependencies:
+      '@zensorum/application-contracts':
+        specifier: workspace:*
+        version: link:../application-contracts
+      '@zensorum/core':
+        specifier: workspace:*
+        version: link:../core
+      '@zensorum/ledger':
+        specifier: workspace:*
+        version: link:../ledger
+      '@zensorum/replay':
+        specifier: workspace:*
+        version: link:../replay
+      '@zensorum/validation':
+        specifier: workspace:*
+        version: link:../validation
+      commander:
+        specifier: ^13.0.0
+        version: 13.1.0
+
+  packages/projection: {}
 
   packages/replay:
     dependencies:
@@ -166,6 +197,8 @@ importers:
         specifier: ^14.0.0
         version: 14.0.0
 
+  packages/sdk: {}
+
   packages/validation:
     dependencies:
       '@zensorum/application-contracts':
@@ -174,6 +207,8 @@ importers:
       '@zensorum/core':
         specifier: workspace:*
         version: link:../core
+
+  packages/workflow-engine: {}
 
 packages:
 
@@ -1334,6 +1369,10 @@ packages:
 
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  commander@13.1.0:
+    resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
+    engines: {node: '>=18'}
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -3947,6 +3986,8 @@ snapshots:
       color-name: 1.1.4
 
   color-name@1.1.4: {}
+
+  commander@13.1.0: {}
 
   concat-map@0.0.1: {}
 
