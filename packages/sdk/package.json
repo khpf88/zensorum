@@ -1,0 +1,10 @@
+{
+  "name": "@zensorum/sdk",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "build": "echo 'Building sdk...'",
+    "clean": "rm -rf dist"
+  }
+}
