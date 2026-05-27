@@ -1,5 +1,5 @@
-import { ExecutionBundle } from '../application-contracts/types/execution-bundle';
-import { ExecutionSnapshotState } from '../validation/snapshot';
+import { ExecutionBundle } from '@zensorum/application-contracts/types/execution-bundle';
+import { ExecutionSnapshotState } from '@zensorum/validation/snapshot';
 
 /**
  * Golden Trace

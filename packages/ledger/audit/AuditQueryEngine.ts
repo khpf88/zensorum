@@ -1,6 +1,6 @@
 import { CertificationRegistry } from '../registry/CertificationRegistry';
 import { DeterministicExecutionIndex } from '../indexing/DeterministicExecutionIndex';
-import { LedgerEntry } from '../core/entry';
+import { LedgerEntry } from '@zensorum/ledger/core/entry';
 
 export class AuditQueryEngine {
   constructor(

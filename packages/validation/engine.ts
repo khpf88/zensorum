@@ -1,5 +1,5 @@
 import { DomainWorkflowDefinition } from './types';
-import { CanonicalDomainGraph } from '../workflow-engine';
+import { CanonicalDomainGraph } from '@zensorum/workflow-engine';
 import { 
   DomainValidator, 
   CompilerValidator, 

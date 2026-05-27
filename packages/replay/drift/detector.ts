@@ -1,4 +1,4 @@
-import { ExecutionSnapshotState } from '../../validation/snapshot';
+import { ExecutionSnapshotState } from '@zensorum/validation/snapshot';
 import { DriftReport, DriftType } from '../types';
 
 export class ExecutionDriftDetector {

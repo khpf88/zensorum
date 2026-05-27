@@ -1,4 +1,4 @@
-import { ExecutionSnapshotState, NodeState } from '../../validation/snapshot';
+import { ExecutionSnapshotState, NodeState } from '@zensorum/validation/snapshot';
 
 /**
  * Strict canonical structures for comparison, ensuring stable ordering

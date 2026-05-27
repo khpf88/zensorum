@@ -1,5 +1,5 @@
 import { FormalProofEngine, ProofResult } from './formal-verification';
-import { ExecutionBundle } from '../application-contracts/types/execution-bundle';
+import { ExecutionBundle } from '@zensorum/application-contracts/types/execution-bundle';
 
 export class DeterminismProofEngine implements FormalProofEngine<ExecutionBundle> {
   prove(bundle: ExecutionBundle): ProofResult {

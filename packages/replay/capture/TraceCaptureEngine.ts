@@ -1,6 +1,6 @@
-import { ExecutionSnapshotState } from '../../validation/snapshot';
+import { ExecutionSnapshotState } from '@zensorum/validation/snapshot';
 import { GoldenExecutionTrace } from '../types';
-import { ExecutionBundle } from '../../application-contracts/types/execution-bundle';
+import { ExecutionBundle } from '@zensorum/application-contracts/types/execution-bundle';
 
 export interface SchedulerDecision {
   nodeId: string;

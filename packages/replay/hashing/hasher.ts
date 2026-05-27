@@ -1,5 +1,5 @@
-import { IdentityProjectionAuthority } from '../../core';
-import { ExecutionSnapshotState } from '../../validation/snapshot';
+import { IdentityProjectionAuthority } from '@zensorum/core';
+import { ExecutionSnapshotState } from '@zensorum/validation/snapshot';
 
 /**
  * DeterministicStateHasher

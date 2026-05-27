@@ -1,5 +1,5 @@
 import { createHash } from 'crypto';
-import { LedgerEntry } from '../core/entry';
+import { LedgerEntry } from '@zensorum/ledger/core/entry';
 
 /**
  * Creates tamper-evident links between ledger entries.

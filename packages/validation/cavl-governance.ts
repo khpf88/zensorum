@@ -1,4 +1,4 @@
-import { CAR_Binding } from '../application-contracts/types/execution-bundle';
+import { CAR_Binding } from '@zensorum/application-contracts/types/execution-bundle';
 
 export interface CARGovernanceReport {
   bundleId: string;

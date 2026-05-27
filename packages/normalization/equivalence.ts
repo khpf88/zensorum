@@ -1,6 +1,6 @@
-import { CanonicalDomainGraph } from '../workflow-engine';
+import { CanonicalDomainGraph } from '@zensorum/workflow-engine';
 import { CanonicalNormalizationEngine } from './engine';
-import { ComposableInvariant } from '../validation/invariant';
+import { ComposableInvariant } from '@zensorum/validation/invariant';
 
 export class SemanticEquivalenceChecker {
   private engine = new CanonicalNormalizationEngine();

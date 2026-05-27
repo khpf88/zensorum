@@ -1,5 +1,5 @@
-import { PatientSummaryDTO, LabResultDTO } from '../application-contracts/types/dto';
-import { ExecutionTrace } from '../application-contracts/trace/trace';
+import { PatientSummaryDTO, LabResultDTO } from '@zensorum/application-contracts/types/dto';
+import { ExecutionTrace } from '@zensorum/application-contracts/trace/trace';
 
 /**
  * DomainProjectionAdapter: Transforms domain/execution outputs into UI-safe DTOs/Traces.

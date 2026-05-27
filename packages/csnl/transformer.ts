@@ -1,6 +1,6 @@
-import { ExecutionSemanticBinding } from '../binding';
+import { ExecutionSemanticBinding } from '@zensorum/binding';
 import { CanonicalExecutionBundle } from './types';
-import { IntegrityEngine } from '../validation';
+import { IntegrityEngine } from '@zensorum/validation';
 
 /**
  * CSNL Transformer: The final deterministic stage in the pipeline.

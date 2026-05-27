@@ -1,4 +1,4 @@
-import { CanonicalDomainGraph } from '../workflow-engine';
+import { CanonicalDomainGraph } from '@zensorum/workflow-engine';
 
 /**
  * Normalizes a CanonicalDomainGraph into a deterministic form.

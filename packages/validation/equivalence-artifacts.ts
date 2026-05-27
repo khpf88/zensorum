@@ -1,4 +1,4 @@
-import { ExecutionBundle } from '../application-contracts/types/execution-bundle';
+import { ExecutionBundle } from '@zensorum/application-contracts/types/execution-bundle';
 
 export interface EquivalenceArtifacts {
   tsBundle: ExecutionBundle;

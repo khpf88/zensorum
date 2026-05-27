@@ -1,4 +1,4 @@
-import { LedgerEntry } from '../core/entry';
+import { LedgerEntry } from '@zensorum/ledger/core/entry';
 
 /**
  * Deterministic index for queryable access.

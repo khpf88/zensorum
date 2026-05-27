@@ -1,5 +1,5 @@
 import { GoldenExecutionTrace, CertificationSeal, CertificationReplayReport } from '../types';
-import { IdentityProjectionAuthority } from '../../core';
+import { IdentityProjectionAuthority } from '@zensorum/core';
 import { v4 as uuidv4 } from 'uuid';
 
 /**

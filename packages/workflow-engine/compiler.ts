@@ -1,5 +1,5 @@
 import { CanonicalDomainGraph } from './types';
-import { TransformationInvariantContract, InvariantPropagationMap } from '../validation/invariant';
+import { TransformationInvariantContract, InvariantPropagationMap } from '@zensorum/validation/invariant';
 
 /**
  * Workflow Compiler Interface

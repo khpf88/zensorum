@@ -1,4 +1,4 @@
-import { CertificationSeal, CertificationReplayReport, ReplayProtocolVersion } from '../../replay/types';
+import { CertificationSeal, CertificationReplayReport, ReplayProtocolVersion } from '@zensorum/replay/types';
 
 export interface LedgerEntry {
   executionIdentity: string;
