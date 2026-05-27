@@ -30,3 +30,14 @@ Thumbs.db
 
 # Go binaries
 runtime/runtime
+
+# Ephemeral runtime/certification artifacts
+*.log
+*.tmp
+docs/certification_seal_stage4.json
+docs/drift_report_stage3.json
+docs/golden_trace_stage2.json
+docs/ledger_commit_stage4.json
+docs/replay_certification_candidate.json
+docs/replay_validation_stage3.md
+docs/certification_stage2_log.md

@@ -1,8 +1,8 @@
 // src/agents/sample_analysis_agent.ts
 import { v4 as uuidv4 } from 'uuid';
-import { BaseEvent, AgentContext } from '../core/types';
-import { llmClient } from '../lib/llm/llm_client';
-import { LLMOutputValidator, LabAnalysisSuggestionSchema } from '../lib/llm/output_validator';
+import { BaseEvent, AgentContext } from '../../packages/core/types';
+import { llmClient } from '../../apps/zensorum-discharge-demo/lib/llm/llm_client';
+import { LLMOutputValidator, LabAnalysisSuggestionSchema } from '../../apps/zensorum-discharge-demo/lib/llm/output_validator';
 
 /**
  * SampleAnalysisAgent: Reasons about lab sample data using LLM simulation.

@@ -8,14 +8,14 @@ import {
   SystemDependencyCycleDetectedEventSchema,
   SystemPolicyRejectedEventSchema,
   SystemOrchestrationTransitionEventSchema
-} from '../core/types';
+} from '../../packages/core/types';
 import { 
   LabSampleSubmittedRequestedSchema, 
   LabSampleSubmittedCompletedSchema,
   LabSampleAnalysisRequestedSchema,
   LabSampleAnalysisCompletedSchema,
   LabResultFinalizedCompletedSchema
-} from './event_schemas';
+} from './schemas';
 
 export enum EventCategory {
   EXECUTABLE_INTENT = 'EXECUTABLE_INTENT',

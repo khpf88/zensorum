@@ -1,6 +1,6 @@
 // src/domain/event_schemas.ts
 import { z } from 'zod';
-import { BaseEventSchema } from '../core/types';
+import { BaseEventSchema } from '../../packages/core/types';
 
 /**
  * Domain-specific event schemas for Zensorum Discharge Demo.

@@ -1,6 +1,6 @@
 // src/handlers/result_finalization_handler.ts
-import { EventHandler } from '../core/types';
-import { ZensorumClient } from '../src/lib/sdk_client';
+import { EventHandler } from '../../packages/core/types';
+import { ZensorumClient } from '../../apps/zensorum-discharge-demo/src/lib/sdk_client';
 
 /**
  * Handler for LAB.RESULT.FINALIZED.COMPLETED via SDK

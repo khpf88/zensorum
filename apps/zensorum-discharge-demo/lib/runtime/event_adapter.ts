@@ -1,4 +1,4 @@
-import { BaseEvent } from '../../core/types';
+import { BaseEvent } from '../../../../packages/core/types';
 
 export interface SDKEvent {
     id: string;

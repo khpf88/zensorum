@@ -1,7 +1,7 @@
 // src/handlers/lab_sample_handlers.ts
-import { BaseEvent, EventHandler, AgentContext } from '../core/types';
+import { BaseEvent, EventHandler, AgentContext } from '../../packages/core/types';
 import { v4 as uuidv4 } from 'uuid';
-import { agentBridge } from '../core/agent_bridge';
+import { agentBridge } from '../../apps/zensorum-discharge-demo/core/agent_bridge';
 import { sampleAnalysisAgent } from '../agents/sample_analysis_agent';
 
 /**

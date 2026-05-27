@@ -1,6 +1,6 @@
 // src/agents/result_finalization_agent.ts
 import { v4 as uuidv4 } from 'uuid';
-import { BaseEvent, AgentContext } from '../core/types';
+import { BaseEvent, AgentContext } from '../../packages/core/types';
 
 /**
  * ResultFinalizationAgent: Determines final result status.

@@ -1,4 +1,4 @@
-import { RunId, WorkflowId, TenantId, BaseEvent, ZensorumEvent } from '../../core/types';
+import { RunId, WorkflowId, TenantId, BaseEvent, ZensorumEvent } from '../../../../packages/core/types';
 
 /**
  * Flux Stability Domains

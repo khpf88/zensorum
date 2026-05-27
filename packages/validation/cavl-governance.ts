@@ -1,12 +1,4 @@
-export interface CAR_Binding {
-  carVersionId: string;
-  bindingMode: "STRICT" | "LEGACY_REPLAY" | "TRANSITIONAL";
-  lockHash: string;
-  effectiveScope: {
-    appliesTo: string[];
-    immutableDuringReplay: boolean;
-  };
-}
+import { CAR_Binding } from '../application-contracts/types/execution-bundle';
 
 export interface CARGovernanceReport {
   bundleId: string;

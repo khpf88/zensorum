@@ -1,5 +1,5 @@
 import { CGVLGovernanceEngine, CARGovernanceReport } from './cavl-governance';
-import { ExecutionBundle } from '../../zensorum-discharge-demo/types/runtime/execution-bundle';
+import { ExecutionBundle } from '../application-contracts/types/execution-bundle';
 
 export class ZensorumCGVLGovernanceEngine implements CGVLGovernanceEngine {
   verifyBinding(bundle: ExecutionBundle): CARGovernanceReport {

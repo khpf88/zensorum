@@ -4,6 +4,7 @@ import { OrchestrationEngine } from './engine';
 import { ExecutionBundle } from '@/types/runtime/execution-bundle';
 import { canonicalize } from '../canonical';
 import { createHash } from 'node:crypto';
+import { IdentityProjectionAuthority } from '@zensorum/core';
 
 function hash(input: any): string {
     const canonical = canonicalize(input);
@@ -19,8 +20,9 @@ export function generateBundle(
     
     // ... execution loop and aggregation ...
 
-    return {
+    const bundle: ExecutionBundle = {
         runId,
+        executionIdentity: '', // Computed below
         runtime: 'ts',
         eventStreamHash: hash(eventStream),
         frcsDecisions: [], // populated in loop
@@ -29,6 +31,17 @@ export function generateBundle(
         stateHashTimeline: [],
         finalStateHash: '',
         replayHash: '',
-        runtimeMeta: { version: '1.0.0', buildId: 'dev', executionTimeNs: Date.now() * 1e6 }
+        runtimeMeta: { version: '1.0.0', buildId: 'dev', executionTimeNs: Date.now() * 1e6 },
+        carBinding: {
+            carVersionId: 'v1.0.0',
+            bindingMode: 'STRICT',
+            lockHash: 'initial',
+            effectiveScope: { appliesTo: [], immutableDuringReplay: true }
+        }
     };
+
+    // Canonical IPA projection
+    bundle.executionIdentity = IdentityProjectionAuthority.computeIdentity(bundle, 'IPA-v1');
+
+    return bundle;
 }

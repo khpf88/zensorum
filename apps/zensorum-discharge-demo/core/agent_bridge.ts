@@ -1,5 +1,5 @@
 // src/core/agent_bridge.ts
-import { BaseEvent } from './types';
+import { BaseEvent } from '../../../packages/core/types';
 
 /**
  * MOCK AGENT BRIDGE FOR SDK
