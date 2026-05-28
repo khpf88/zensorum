@@ -10,6 +10,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
       "@zensorum/application-contracts/*": ["packages/application-contracts/*"],

@@ -1,0 +1,14 @@
+{
+  "id": "vector-simple-1",
+  "version": "1.0.0",
+  "input": {
+    "id": "simple-input-1",
+    "data": {
+      "keyB": 2,
+      "keyA": "value1",
+      "keyC": true
+    }
+  },
+  "expectedOutputHash": "mock_hash_something",
+  "expectedEncodedBytesHash": "mock_bytes_hash_something"
+}

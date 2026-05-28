@@ -1,0 +1,20 @@
+{
+  "id": "vector-complex-1",
+  "version": "1.0.0",
+  "input": {
+    "id": "complex-input-1",
+    "data": {
+      "arrayData": [
+        {"item": 1, "name": "first"},
+        {"item": 2, "name": "second"}
+      ],
+      "nested": {
+        "z": 3,
+        "a": "nestedVal"
+      },
+      "status": "active"
+    }
+  },
+  "expectedOutputHash": "mock_hash_something_complex",
+  "expectedEncodedBytesHash": "mock_bytes_hash_something_complex"
+}
