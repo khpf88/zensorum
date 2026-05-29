@@ -4,10 +4,10 @@ import {
   GoldenVector,
   TestRunResult,
   ExecutionEnvironmentConfig,
-} from './types';
+} from '../types';
 import { ReplayExecutionRunner } from './ReplayExecutionRunner';
-import { CanonicalEncoderInvoker } from './CanonicalEncoderInvoker';
-import { HashValidationEngine } from './HashValidationEngine';
+import { CanonicalEncoderInvoker } from '../orchestration/CanonicalEncoderInvoker';
+import { HashValidationEngine } from '../comparison/HashValidationEngine';
 
 /**
  * Orchestrates the execution of a single golden vector across all configured environments.

@@ -1,7 +1,7 @@
 // src/replay/ValidationReportGenerator.ts
 
-import { ComparisonResult, ValidationReport, FailureDetailsDTO } from './types';
-import { sanitizeValueForReport } from './OutputComparator'; // Re-use sanitize function
+import { ComparisonResult, ValidationReport, FailureDetailsDTO } from '@zensorum/replay/types';
+import { OutputComparator } from '../comparison/OutputComparator';
 
 /**
  * Generates and prints a comprehensive deterministic validation report based on comparison results.

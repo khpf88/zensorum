@@ -1,3 +1,4 @@
+import * as crypto from 'crypto';
 
 export interface StableSemanticProjection {
     [key: string]: any;
@@ -32,12 +33,13 @@ export class IdentityProjectionAuthority {
         'executionTimeNs',
         'executionStep',
         'buildId',
-        'runtimeMeta', // Often contains volatile info
-        'snapshotHash', // Derivative
+        'runtimeMeta', 
+        'snapshotHash', 
         'replayHash',
-        'frcsDecisions', // Runtime decisions
+        'frcsDecisions',
         'eventOrder',
-        'stateHashTimeline'
+        'stateHashTimeline',
+        'transformationTimestamp'
     ]);
 
     private static normalize(obj: any): any {
@@ -45,16 +47,20 @@ export class IdentityProjectionAuthority {
         // IPA Logic: deterministic normalization
         if (obj === null || typeof obj !== 'object') return obj;
         if (obj instanceof Map) {
-            return Object.fromEntries(
-                Array.from(obj.entries())
+            return {
+                __type: 'Map',
+                entries: Array.from(obj.entries())
                     .sort(([a], [b]) => String(a).localeCompare(String(b)))
                     .map(([k, v]) => [k, normalize(v)])
-            );
+            };
         }
         if (obj instanceof Set) {
-            return Array.from(obj.values())
-                .sort((a, b) => String(a).localeCompare(String(b)))
-                .map(normalize);
+            return {
+                __type: 'Set',
+                values: Array.from(obj.values())
+                    .sort((a, b) => String(a).localeCompare(String(b)))
+                    .map(normalize)
+            };
         }
         if (Array.isArray(obj)) return obj.map(normalize);
         return Object.keys(obj)
@@ -69,9 +75,30 @@ export class IdentityProjectionAuthority {
     }
 
     private static hash(projection: StableSemanticProjection): string {
-        // Deterministic hashing implementation
-        return require('crypto').createHash('sha256')
-            .update(JSON.stringify(projection))
-            .digest('hex');
+        const hash = crypto.createHash('sha256');
+        this.updateHash(hash, projection);
+        return hash.digest('hex');
+    }
+
+    private static updateHash(hash: crypto.Hash, data: any): void {
+        if (data === null || typeof data !== 'object') {
+            hash.update(String(data));
+            return;
+        }
+
+        if (Array.isArray(data)) {
+            hash.update('Array');
+            for (const item of data) {
+                this.updateHash(hash, item);
+            }
+            return;
+        }
+
+        hash.update('Object');
+        const keys = Object.keys(data).sort();
+        for (const key of keys) {
+            hash.update(key);
+            this.updateHash(hash, data[key]);
+        }
     }
 }

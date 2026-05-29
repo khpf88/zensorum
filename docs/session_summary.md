@@ -20,3 +20,31 @@ Transition Zensorum from an architectural design to an empirically certified det
 ### Determinism Verdict
 **STATUS: EMPIRICALLY CERTIFIED**
 The Zensorum platform is now operationally ready to serve as a deterministic foundation for hospital discharge and other mission-critical workflows.
+
+## Session: 2026-05-27
+
+### Goal
+Implement a CSNL-based deterministic scenario system for the `operator-cli` and verify the stability of execution identity and canonical hashing across different input orderings.
+
+### Outcomes
+- **Deterministic Scenario System:**
+    - Defined a structured, versioned `ZensorumScenario` schema within `packages/application-contracts`.
+    - Integrated this schema into the `CSNLTransformer`, enabling robust validation and canonicalization of scenario inputs.
+- **Operator CLI Enhancement:**
+    - The `operator-cli`'s `execute` command was refactored to accept `ZensorumScenario` inputs via `--file` or `--json` options, replacing previous string-based arguments.
+    - CLI execution and module resolution issues were resolved, allowing the CLI to run reliably with `tsx`.
+- **Execution Identity Stability:**
+    - Successfully ensured that semantically identical scenario inputs (regardless of JSON field ordering) produce **identical `executionId`** values, proving the effectiveness of the IPA's canonicalization.
+    - Verified that semantically different scenario inputs produce **different `executionId`** values, as expected.
+- **Canonical Hashing Determinism:**
+    - Achieved stable `canonicalHash` generation for the `CanonicalExecutionBundle`, confirming it is independent of non-deterministic metadata like timestamps and JSON field ordering for semantically equivalent inputs.
+- **Architectural Enforcement:** The entire pipeline now adheres to `Scenario → CSNL → IPA → Runtime → Replay → Certification → Ledger` flow for execution, strengthening deterministic guarantees.
+
+### Key Architectural Decisions
+- **IPA as Canonicalization Authority:** Confirmed that `IdentityProjectionAuthority` is the sole source of truth for deep deterministic canonicalization (including array and object sorting). `CSNLTransformer` prepares the input, but IPA enforces final order-independence.
+- **Exclusion of Non-Deterministic Metadata:** Explicitly excluded transient metadata (`transformationTimestamp`) from hash calculations to maintain deterministic identity.
+
+### Determinism Verdict
+**STATUS: HIGHLY STABLE & VERIFIED**
+The Zensorum platform's execution identity and canonicalization processes are now demonstrably stable and resilient to input variations, reinforcing its deterministic foundation.
+

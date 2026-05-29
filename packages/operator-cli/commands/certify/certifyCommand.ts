@@ -1,6 +1,6 @@
 import { Command } from 'commander';
-import { CertificationService } from '../../services/certification/certificationService';
-import { OutputFormatter } from '../../formatters/outputFormatter';
+import { CertificationService } from '@zensorum/operator-cli/services/certification/certificationService.ts';
+import { OutputFormatter } from '@zensorum/operator-cli/formatters/outputFormatter.ts';
 
 export const registerCertifyCommand = (program: Command) => {
   program

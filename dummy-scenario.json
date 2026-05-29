@@ -1,0 +1,29 @@
+{
+  "scenarioId": "test-scenario-001",
+  "executionDomain": "test-domain",
+  "csnlVersion": "1.0.0",
+  "runtimeVersion": "1.0.0",
+  "replayProtocolVersion": "1.0.0",
+  "intent": {
+    "type": "some-type",
+    "action": "some-action",
+    "subject": "some-subject"
+  },
+  "payload": {
+    "data": "example",
+    "value": 123
+  },
+  "execution": {
+    "mode": "strict",
+    "deterministic": true,
+    "allowSideEffects": false
+  },
+  "governance": {
+    "policies": ["policy-A", "policy-B"],
+    "complianceMode": "strict"
+  },
+  "trace": {
+    "correlationId": "trace-123",
+    "origin": "cli"
+  }
+}

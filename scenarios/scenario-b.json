@@ -1,0 +1,30 @@
+{
+  "trace": {
+    "origin": "cli",
+    "correlationId": "corr-001"
+  },
+  "governance": {
+    "complianceMode": "strict",
+    "policies": ["clinical-policy-v1"]
+  },
+  "execution": {
+    "allowSideEffects": false,
+    "deterministic": true,
+    "mode": "strict"
+  },
+  "payload": {
+    "encounterId": "E-200",
+    "patientId": "P-100",
+    "facilityId": "FAC-01"
+  },
+  "intent": {
+    "subject": "patient-discharge",
+    "type": "approval",
+    "action": "clinical-clearance"
+  },
+  "replayProtocolVersion": "1.0.0",
+  "runtimeVersion": "1.0.0",
+  "csnlVersion": "1.0.0",
+  "executionDomain": "healthcare.discharge",
+  "scenarioId": "test-scenario-001A"
+}

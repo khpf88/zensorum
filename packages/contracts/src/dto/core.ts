@@ -1,14 +1,3 @@
-// src/replay/types.ts
-
-// Phase 3.9 Immutable Contracts (Assumed to exist for this phase)
-// Declared as global functions, implemented as mocks in main.ts
-declare function encodeCanonical(dto: CanonicalDTO): Uint8Array;
-declare function hashCanonical(dto: CanonicalDTO): string;
-declare function normalize<T extends CanonicalDTO>(dto: T): T;
-
-// 1. CORE TYPES (MANDATORY)
-
-// --- Canonical DTOs ---
 export interface CanonicalDTO {
   id: string;
   data: Record<string, unknown>;
@@ -25,7 +14,6 @@ export interface CanonicalExecutionSnapshot {
   schedulerContext: { activeNodeId: string; scheduledTicks: number[] };
 }
 
-// --- Golden Vector ---
 export interface GoldenVector {
   id: string;
   version: string;
@@ -34,7 +22,6 @@ export interface GoldenVector {
   expectedEncodedBytesHash?: string;
 }
 
-// --- Test Run Result ---
 export interface ExecutionEnvironmentConfig {
   id: string;
   os: string;
@@ -58,19 +45,6 @@ export interface TestRunResult {
   executionMetadata?: Record<string, unknown>;
 }
 
-// --- Comparison Result ---
-export type FailureType = 'replay' | 'encoding' | 'hash' | 'ordering' | 'unknown';
-
-export interface FailureDetailsDTO {
-  type: FailureType;
-  message: string;
-  divergentPropertyPath?: string;
-  expectedValue?: unknown;
-  actualValue?: unknown;
-  environmentA?: ExecutionEnvironmentConfig;
-  environmentB?: ExecutionEnvironmentConfig;
-}
-
 export interface ComparisonResult {
   inputVectorId: string;
   status: 'PASS' | 'FAIL';
@@ -78,7 +52,6 @@ export interface ComparisonResult {
   firstRunResult?: TestRunResult;
 }
 
-// --- Validation Report ---
 export interface ValidationReport {
   overallStatus: 'PASS' | 'FAIL';
   summary: {

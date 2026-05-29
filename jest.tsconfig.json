@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@zensorum/canonical": ["./packages/canonical/src/index.ts"],
+      "@zensorum/replay": ["./packages/replay/src/index.ts"]
+    }
+  }
+}

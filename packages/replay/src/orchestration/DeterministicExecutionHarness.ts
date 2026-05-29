@@ -1,20 +1,19 @@
 // src/replay/DeterministicExecutionHarness.ts
 
-import {
-  GoldenVectorLoader,
-} from './GoldenVectorLoader';
-import { ReplayExecutionRunner } from './ReplayExecutionRunner';
+import { GoldenVectorLoader } from '../vectors/GoldenVectorLoader';
+import { ReplayExecutionRunner } from '../execution/ReplayExecutionRunner';
 import { CanonicalEncoderInvoker } from './CanonicalEncoderInvoker';
-import { HashValidationEngine } from './HashValidationEngine';
-import { CrossRuntimeExecutor } from './CrossRuntimeExecutor';
-import { OutputComparator } from './OutputComparator';
-import { ValidationReportGenerator } from './ValidationReportGenerator';
+import { HashValidationEngine } from '../comparison/HashValidationEngine';
+import { CrossRuntimeExecutor } from '../execution/CrossRuntimeExecutor';
+import { OutputComparator } from '../comparison/OutputComparator';
+import { ValidationReportGenerator } from '../reporting/ValidationReportGenerator';
 import {
   ValidationReport,
   ExecutionEnvironmentConfig,
   ComparisonResult,
   TestRunResult,
-} from './types';
+} from '../types';
+import { CanonicalNormalizer } from '@zensorum/canonical';
 
 /**
  * The core orchestrator of the deterministic execution validation suite.
@@ -31,9 +30,10 @@ export class DeterministicExecutionHarness {
     environments: ExecutionEnvironmentConfig[],
     replayRunner: ReplayExecutionRunner,
     encoderInvoker: CanonicalEncoderInvoker,
-    hashEngine: HashValidationEngine
+    hashEngine: HashValidationEngine,
+    normalizer: CanonicalNormalizer
   ) {
-    this.goldenVectorLoader = new GoldenVectorLoader(goldenVectorDir);
+    this.goldenVectorLoader = new GoldenVectorLoader(goldenVectorDir, normalizer);
     this.crossRuntimeExecutor = new CrossRuntimeExecutor(
       environments,
       replayRunner,

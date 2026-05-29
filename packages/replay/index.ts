@@ -7,3 +7,4 @@ export * from './comparison/CanonicalExecutionSnapshot';
 export * from './certification/CertificationClosureEngine';
 export * from './compatibility/TraceCompatibilityEngine';
 export * from './compatibility/SnapshotEvolutionMapper';
+export * from './artifacts';

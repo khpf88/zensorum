@@ -1,11 +1,18 @@
 import { GoldenExecutionTrace, CertificationSeal, CertificationReplayReport } from '../types';
 import { IdentityProjectionAuthority } from '@zensorum/core';
+import { IClock } from '@zensorum/core/runtime/clock/IClock';
 import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Enforces deterministic certification closure rules.
  */
 export class CertificationClosureEngine {
+  private clock: IClock;
+
+  constructor(clock: IClock) {
+    this.clock = clock;
+  }
+  
   /**
    * Finalizes replay and produces certification seal if valid.
    */
@@ -39,7 +46,7 @@ export class CertificationClosureEngine {
       schemaVersion: '1.0.0',
       replayStatus: 'CERTIFIED',
       finalExecutionHash: actualFinalHash,
-      certificationTimestamp: new Date().toISOString(),
+      certificationTimestamp: this.clock.now(),
       certificationAuthority: 'Zensorum Empirical Authority v1',
     };
 

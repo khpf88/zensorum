@@ -1,0 +1,30 @@
+{
+  "scenarioId": "test-scenario-002C",
+  "executionDomain": "finance.transaction",
+  "csnlVersion": "1.0.0",
+  "runtimeVersion": "1.0.0",
+  "replayProtocolVersion": "1.0.0",
+  "intent": {
+    "type": "transaction",
+    "action": "authorize-payment",
+    "subject": "customer-order"
+  },
+  "payload": {
+    "orderId": "ORD-500",
+    "amount": 100.00,
+    "currency": "USD"
+  },
+  "execution": {
+    "mode": "strict",
+    "deterministic": true,
+    "allowSideEffects": false
+  },
+  "governance": {
+    "policies": ["financial-policy-v2"],
+    "complianceMode": "strict"
+  },
+  "trace": {
+    "correlationId": "corr-002",
+    "origin": "cli"
+  }
+}

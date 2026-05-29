@@ -1,4 +1,5 @@
 import { ExecutionSnapshotState, NodeState } from '@zensorum/validation/snapshot';
+import { CanonicalSchedulerContext } from './CanonicalSchedulerContext';
 
 /**
  * Strict canonical structures for comparison, ensuring stable ordering
@@ -21,11 +22,22 @@ export interface CanonicalExecutionSnapshot {
   stepIndex: number;
   nodeStates: CanonicalNodeState[];
   policyStates: CanonicalPolicyState[];
-  schedulerContext: Record<string, any>;
+  schedulerContext: CanonicalSchedulerContext;
 }
 
 export function toCanonicalSnapshot(snapshot: ExecutionSnapshotState): CanonicalExecutionSnapshot {
-  return {
+  // Perform basic runtime validation/extraction of scheduler context fields
+  const activeNodeId = snapshot.context.activeNodeId;
+  const scheduledTicks = snapshot.context.scheduledTicks;
+  const isDeterministic = snapshot.context.isDeterministic;
+
+  if (typeof activeNodeId !== 'string' || !Array.isArray(scheduledTicks) || typeof isDeterministic !== 'boolean') {
+    // In a real scenario, this would throw a deterministic validation error
+    // For now, we'll assign defaults or throw a more specific error
+    throw new Error('Invalid scheduler context structure for canonical snapshot.');
+  }
+
+  const canonicalSnapshot: CanonicalExecutionSnapshot = {
     stepIndex: snapshot.executionStep,
     nodeStates: Array.from(snapshot.nodeStates.entries())
       .map(([nodeId, status]) => ({
@@ -40,6 +52,15 @@ export function toCanonicalSnapshot(snapshot: ExecutionSnapshotState): Canonical
         evaluationResult,
       }))
       .sort((a, b) => a.policyId.localeCompare(b.policyId)),
-    schedulerContext: snapshot.context, // Assuming context is already serializable
+    schedulerContext: {
+      activeNodeId: activeNodeId,
+      scheduledTicks: scheduledTicks,
+      isDeterministic: isDeterministic,
+    },
   };
+
+  Object.freeze(canonicalSnapshot.nodeStates);
+  Object.freeze(canonicalSnapshot.policyStates);
+  Object.freeze(canonicalSnapshot.schedulerContext);
+  return Object.freeze(canonicalSnapshot);
 }

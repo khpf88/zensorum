@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { registerExecuteCommand } from './commands/execute/executeCommand';
-import { registerReplayCommand } from './commands/replay/replayCommand';
-import { registerCertifyCommand } from './commands/certify/certifyCommand';
-import { registerLedgerCommand } from './commands/ledger/ledgerCommand';
+import { registerExecuteCommand } from './commands/execute/executeCommand.ts';
+import { registerReplayCommand } from './commands/replay/replayCommand.ts';
+import { registerCertifyCommand } from './commands/certify/certifyCommand.ts';
+import { registerLedgerCommand } from './commands/ledger/ledgerCommand.ts';
 
 const program = new Command();
 

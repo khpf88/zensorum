@@ -3,16 +3,20 @@ import { ExecutionDriftDetector } from '../drift/detector';
 import { CertificationReplayReport, CertificationSeal } from '../types';
 import { CertificationClosureEngine } from '../certification/CertificationClosureEngine';
 import { TraceCompatibilityEngine } from '../compatibility/TraceCompatibilityEngine';
+import { IClock } from '@zensorum/core/runtime/clock/IClock';
 
 export class ReplayValidationEngine {
   private driftDetector: ExecutionDriftDetector;
   private closureEngine: CertificationClosureEngine;
   private compatibilityEngine: TraceCompatibilityEngine;
 
-  constructor() {
+  private clock: IClock;
+
+  constructor(clock: IClock) {
     this.driftDetector = new ExecutionDriftDetector();
-    this.closureEngine = new CertificationClosureEngine();
+    this.closureEngine = new CertificationClosureEngine(clock);
     this.compatibilityEngine = new TraceCompatibilityEngine();
+    this.clock = clock;
   }
 
   /**
@@ -47,7 +51,7 @@ export class ReplayValidationEngine {
     );
 
     return {
-      timestamp: new Date().toISOString(),
+      timestamp: this.clock.now(),
       traceId: trace.bundle.runId,
       replayStatus: 'SUCCESS',
       compatibilityStatus: 'COMPATIBLE',
@@ -66,7 +70,7 @@ export class ReplayValidationEngine {
     const compatibility = this.validateTraceCompatibility(trace);
     if (compatibility === 'INCOMPATIBLE') {
         return {
-            timestamp: new Date().toISOString(),
+            timestamp: this.clock.now(),
             traceId: trace.bundle.runId,
             replayStatus: 'FAILURE',
             compatibilityStatus: 'INCOMPATIBLE',

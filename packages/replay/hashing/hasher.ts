@@ -1,5 +1,6 @@
 import { IdentityProjectionAuthority } from '@zensorum/core';
 import { ExecutionSnapshotState } from '@zensorum/validation/snapshot';
+import { GoldenExecutionTrace } from '../types';
 
 /**
  * DeterministicStateHasher
@@ -7,7 +8,7 @@ import { ExecutionSnapshotState } from '@zensorum/validation/snapshot';
  * NOW INTEGRATED WITH IPA.
  */
 export class DeterministicStateHasher {
-  
+
   /**
    * Hashes a snapshot of the runtime state using IPA.
    */
@@ -20,8 +21,9 @@ export class DeterministicStateHasher {
   /**
    * Hashes cumulative artifacts (e.g., full Golden Trace).
    */
-  static hashArtifact(data: any): string {
+  static hashArtifact(data: GoldenExecutionTrace): string {
     // IPA handles identity of artifacts
     return IdentityProjectionAuthority.computeIdentity(data, 'IPA-v1');
   }
 }
+

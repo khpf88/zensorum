@@ -1,6 +1,6 @@
 import { Command } from 'commander';
-import { ReplayService } from '../../services/replay/replayService';
-import { OutputFormatter } from '../../formatters/outputFormatter';
+import { ReplayService } from '@zensorum/operator-cli/services/replay/replayService.ts';
+import { OutputFormatter } from '@zensorum/operator-cli/formatters/outputFormatter.ts';
 
 export const registerReplayCommand = (program: Command) => {
   program

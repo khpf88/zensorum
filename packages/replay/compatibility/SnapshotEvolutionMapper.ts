@@ -1,16 +1,23 @@
-import { CanonicalExecutionSnapshot, toCanonicalSnapshot } from '../comparison/CanonicalExecutionSnapshot';
-import { ReplayProtocolVersion } from '../types';
+import { CanonicalExecutionSnapshot } from '../comparison/CanonicalExecutionSnapshot';
+import { ReplayProtocolVersion, LegacySnapshot } from '../types';
+import { LegacySnapshotConverter } from './LegacySnapshotConverter';
 
 /**
  * Maps historical snapshot schemas to current canonical format.
  */
 export class SnapshotEvolutionMapper {
+  private legacySnapshotConverter: LegacySnapshotConverter;
+
+  constructor() {
+    this.legacySnapshotConverter = new LegacySnapshotConverter();
+  }
+
   /**
    * Transforms old snapshot representation to current version.
+   * This now uses a deterministic migration flow via LegacySnapshotConverter.
    */
-  map(oldSnapshot: any, fromVersion: ReplayProtocolVersion): CanonicalExecutionSnapshot {
-    // Logic to map old snapshot to current canonical format based on version
-    // MUST preserve semantic meaning, only transforming representation structure.
-    return oldSnapshot as CanonicalExecutionSnapshot;
+  map(oldSnapshot: LegacySnapshot, fromVersion: ReplayProtocolVersion): CanonicalExecutionSnapshot {
+    // Deterministically convert and validate the legacy snapshot.
+    return this.legacySnapshotConverter.convert(oldSnapshot, fromVersion);
   }
 }

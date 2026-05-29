@@ -1,0 +1,30 @@
+{
+  "scenarioId": "test-scenario-001A",
+  "executionDomain": "healthcare.discharge",
+  "csnlVersion": "1.0.0",
+  "runtimeVersion": "1.0.0",
+  "replayProtocolVersion": "1.0.0",
+  "intent": {
+    "type": "approval",
+    "action": "clinical-clearance",
+    "subject": "patient-discharge"
+  },
+  "payload": {
+    "patientId": "P-100",
+    "encounterId": "E-200",
+    "facilityId": "FAC-01"
+  },
+  "execution": {
+    "mode": "strict",
+    "deterministic": true,
+    "allowSideEffects": false
+  },
+  "governance": {
+    "policies": ["clinical-policy-v1"],
+    "complianceMode": "strict"
+  },
+  "trace": {
+    "correlationId": "corr-001",
+    "origin": "cli"
+  }
+}

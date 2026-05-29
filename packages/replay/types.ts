@@ -16,6 +16,16 @@ export interface GoldenExecutionTrace {
   finalExecutionHash: string;
 }
 
+// Structured LegacySnapshot to force explicit migration and validation
+export interface LegacySnapshot {
+  workflowId: unknown;
+  executionStep: unknown;
+  nodeStates: unknown;
+  policyCache: unknown;
+  context: unknown;
+  snapshotHash: unknown;
+}
+
 export interface ReplayProtocolVersion {
   major: number;
   minor: number;
@@ -45,12 +55,15 @@ export type DriftType =
   | 'SCHEDULER_DECISION_MISMATCH'
   | 'STATE_HASH_MISMATCH';
 
+// Canonical representation of a drifted value for deterministic reporting
+export type CanonicalDriftValue = string; 
+
 export interface DriftReport {
   tickIndex: number;
   nodeId: string | null;
   driftType: DriftType;
-  expectedValue: any;
-  actualValue: any;
+  expectedValue: CanonicalDriftValue;
+  actualValue: CanonicalDriftValue;
   reason: string;
 }
 
@@ -69,3 +82,4 @@ export interface CertificationReplayReport {
   schedulerConsistency: boolean;
   seal?: CertificationSeal;
 }
+

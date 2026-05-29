@@ -1,16 +1,32 @@
 import { ReplayCommandResult } from '../../contracts/replayResult';
-import { ReplayFacade } from '../../adapters/replayFacade';
+import { ReplayValidationEngine } from '@zensorum/replay';
 import { ErrorFormatter } from '../../diagnostics/errorFormatter';
 import { FailureType } from '../../contracts/failure';
+import { FileSystemArtifactStore, GoldenExecutionTrace } from '@zensorum/replay';
+import { DeterministicClock } from '@zensorum/core';
+import * as path from 'path';
 
 export class ReplayService {
-  private facade = new ReplayFacade();
+  private engine = new ReplayValidationEngine(new DeterministicClock());
+  private artifactStore = new FileSystemArtifactStore(path.resolve(process.cwd(), '.artifacts'), new DeterministicClock());
+//...
 
   async runReplay(executionId: string): Promise<ReplayCommandResult | any> {
     try {
-      const trace = { bundle: { runId: executionId }, schedulerSnapshots: [] } as any;
-      const report = await this.facade.validate(trace);
-      
+      // 1. Load Persisted Trace
+      const trace = await this.artifactStore.getArtifact<GoldenExecutionTrace>(executionId, 'TRACE');
+
+      if (!trace) {
+        return ErrorFormatter.format('replay', FailureType.REPLAY_PARITY_FAILURE, `Execution trace not found for ID: ${executionId}`, { executionId });
+      }
+
+      // 2. Validate Replay via Engine
+      const report = await this.engine.replay(trace);
+
+      // 3. Persist Replay Report
+      await this.artifactStore.putArtifact(executionId, 'REPLAY_REPORT', report);
+//...
+
       if (report.replayStatus !== 'SUCCESS') {
           return ErrorFormatter.format('replay', FailureType.REPLAY_PARITY_FAILURE, 'Parity mismatch detected', { executionId });
       }

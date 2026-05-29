@@ -32,6 +32,7 @@ Thumbs.db
 runtime/runtime
 
 # Ephemeral runtime/certification artifacts
+.artifacts/
 *.log
 *.tmp
 docs/certification_seal_stage4.json

@@ -1,6 +1,6 @@
 import { Command } from 'commander';
-import { LedgerService } from '../../services/ledger/ledgerService';
-import { OutputFormatter } from '../../formatters/outputFormatter';
+import { LedgerService } from '@zensorum/operator-cli/services/ledger/ledgerService.ts';
+import { OutputFormatter } from '@zensorum/operator-cli/formatters/outputFormatter.ts';
 
 export const registerLedgerCommand = (program: Command) => {
   const ledger = program.command('ledger');

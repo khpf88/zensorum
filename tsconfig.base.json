@@ -13,6 +13,9 @@
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
+      "@zensorum/canonical/*": ["packages/canonical/src/*"],
+      "@zensorum/contracts/*": ["packages/contracts/src/*"],
+      "@zensorum/replay/*": ["packages/replay/src/*"],
       "@zensorum/application-contracts/*": ["packages/application-contracts/*"],
       "@zensorum/binding/*": ["packages/binding/*"],
       "@zensorum/core/*": ["packages/core/*"],
